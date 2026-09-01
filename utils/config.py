@@ -143,7 +143,10 @@ NEO4J_PASSWORD = os.getenv(
     _get_nested(_PARAMS, "graph", "password_env", default="NEO4J_PASSWORD"),
     None,
 )
-NEO4J_DATABASE = _get_nested(_PARAMS, "graph", "database", default="neo4j")
+NEO4J_DATABASE = os.getenv(
+    _get_nested(_PARAMS, "graph", "database_env", default="NEO4J_DATABASE"),
+    _get_nested(_PARAMS, "graph", "database", default="neo4j"),
+)
 
 
 # Project Paths (from params.yaml)
